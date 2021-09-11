@@ -1,8 +1,8 @@
 using System.IO;
 using System.Threading.Tasks;
-using Photy.Services.Environment.Implementations;
+using Photy.Services.Environment.Interfaces;
 
-namespace Photy.Services.Environment.Interfaces
+namespace Photy.Services.Environment.Implementations
 {
     public class EnvironmentFileService : IEnvironmentFileService
     {

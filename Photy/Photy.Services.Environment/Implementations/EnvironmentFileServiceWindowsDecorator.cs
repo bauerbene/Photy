@@ -1,8 +1,8 @@
 using System.IO;
 using System.Threading.Tasks;
-using Photy.Services.Environment.Implementations;
+using Photy.Services.Environment.Interfaces;
 
-namespace Photy.Services.Environment.Interfaces
+namespace Photy.Services.Environment.Implementations
 {
     public class EnvironmentFileServiceWindowsDecorator : IEnvironmentFileService
     {
@@ -20,7 +20,7 @@ namespace Photy.Services.Environment.Interfaces
 
         public string[] GetFiles(string directory)
         {
-            return _environmentFileService.GetFiles(PreProcessPath(directory));
+            return _environmentFileService.GetFiles(PreprocessPath(directory));
         }
 
         public bool CheckIfExists(string filePath)
@@ -63,7 +63,7 @@ namespace Photy.Services.Environment.Interfaces
             return _environmentFileService.OpenWrite(filePath);
         }
 
-        private static string PreProcessPath(string path)
+        private static string PreprocessPath(string path)
         {
             return path.EndsWith("\\") ? path : path + "\\";
         }
