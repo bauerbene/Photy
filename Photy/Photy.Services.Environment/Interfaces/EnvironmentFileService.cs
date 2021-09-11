@@ -8,52 +8,55 @@ namespace Photy.Services.Environment.Interfaces
     {
         public FileInfo GetFile(string file)
         {
-            throw new System.NotImplementedException();
+            return new FileInfo(file);
         }
 
         public string[] GetFiles(string directory)
         {
-            throw new System.NotImplementedException();
+            return Directory.GetFiles(directory);
         }
 
         public bool CheckIfExists(string filePath)
         {
-            throw new System.NotImplementedException();
+            return File.Exists(filePath);
         }
 
         public void Move(string srcFilePath, string destFilePath)
         {
-            throw new System.NotImplementedException();
+            // TODO as task ? 
+            // Task.Run(() => File.Move(srcFilePath, destFilePath));
+            File.Move(srcFilePath, destFilePath);
         }
 
         public void Delete(string filePath)
         {
-            throw new System.NotImplementedException();
+            File.Delete(filePath);
         }
 
-        public Task WriteTextAsync(string filePath, string text)
+        public async Task WriteTextAsync(string filePath, string text)
         {
-            throw new System.NotImplementedException();
+            await File.WriteAllTextAsync(filePath, text);
         }
-
-        public Task WriteBytesAsync(string filePath, byte[] bytes)
+        
+        public async Task WriteBytesAsync(string filePath, byte[] bytes)
         {
-            throw new System.NotImplementedException();
+            await File.WriteAllBytesAsync(filePath, bytes);
         }
 
         public void Create(string filePath)
         {
-            throw new System.NotImplementedException();
+            // TODO DisposeAsync() ?
+            File.Create(filePath).Dispose();
         }
 
         public Stream OpenRead(string filePath)
         {
-            throw new System.NotImplementedException();
+            return File.OpenRead(filePath);
         }
 
         public Stream OpenWrite(string filePath)
         {
-            throw new System.NotImplementedException();
+            return File.OpenWrite(filePath);
         }
     }
 }
