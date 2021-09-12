@@ -4,69 +4,69 @@ using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class EnvironmentDirectoryServiceWindowsDecorator : IEnvironmentDirectoryService
+    public class WindowsDirectoryService : IDirectoryService
     {
-        private readonly IEnvironmentDirectoryService _environmentDirectoryService;
+        private readonly IDirectoryService _directoryService;
 
-        public EnvironmentDirectoryServiceWindowsDecorator(IEnvironmentDirectoryService environmentDirectoryService)
+        public WindowsDirectoryService(IDirectoryService directoryService)
         {
-            _environmentDirectoryService = environmentDirectoryService;
+            _directoryService = directoryService;
         }
 
         public void CreateDirectory(string directory)
         {
-            _environmentDirectoryService.CreateDirectory(directory);
+            _directoryService.CreateDirectory(directory);
         }
 
         public IEnumerable<string> EnumerateFilesRecursively(string directory)
         {
-            return _environmentDirectoryService.EnumerateFilesRecursively(PreprocessPath(directory));
+            return _directoryService.EnumerateFilesRecursively(PreprocessPath(directory));
         }
 
         public IEnumerable<string> EnumerateDirectoriesRecursively(string directory)
         {
-            return _environmentDirectoryService.EnumerateDirectoriesRecursively(PreprocessPath(directory));
+            return _directoryService.EnumerateDirectoriesRecursively(PreprocessPath(directory));
         }
 
         public IEnumerable<string> EnumerateFileSystemEntriesRecursively(string directory)
         {
-            return _environmentDirectoryService.EnumerateFileSystemEntriesRecursively(PreprocessPath(directory));
+            return _directoryService.EnumerateFileSystemEntriesRecursively(PreprocessPath(directory));
         }
 
         public DirectoryInfo GetDirectory(string directory)
         {
-            return _environmentDirectoryService.GetDirectory(PreprocessPath(directory));
+            return _directoryService.GetDirectory(PreprocessPath(directory));
         }
 
         public string[] GetDirectories(string directory)
         {
-            return _environmentDirectoryService.GetDirectories(PreprocessPath(directory));
+            return _directoryService.GetDirectories(PreprocessPath(directory));
         }
 
         public bool CheckIfExists(string directory)
         {
-            return _environmentDirectoryService.CheckIfExists(PreprocessPath(directory));
+            return _directoryService.CheckIfExists(PreprocessPath(directory));
         }
 
         public string GetCurrentDirectory()
         {
-            return _environmentDirectoryService.GetCurrentDirectory();
+            return _directoryService.GetCurrentDirectory();
         }
 
         public void Move(string srcDirectory, string destDirectory)
         {
-            _environmentDirectoryService.Move(srcDirectory, destDirectory);
+            _directoryService.Move(srcDirectory, destDirectory);
         }
 
         public void Copy(string srcDirectory, string destDirectory, bool recursive)
         {
             // TODO PreprocessPath necessary ? 
-            _environmentDirectoryService.Copy(srcDirectory, destDirectory, recursive);
+            _directoryService.Copy(srcDirectory, destDirectory, recursive);
         }
 
         public void Delete(string path, bool recursive)
         {
-            _environmentDirectoryService.Delete(path, recursive);
+            _directoryService.Delete(path, recursive);
         }
 
         private static string PreprocessPath(string directory)

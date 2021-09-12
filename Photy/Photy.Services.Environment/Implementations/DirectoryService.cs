@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection.PortableExecutable;
 using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class EnvironmentDirectoryService : IEnvironmentDirectoryService
+    public class DirectoryService : IDirectoryService
     {
         public void CreateDirectory(string directory)
         {

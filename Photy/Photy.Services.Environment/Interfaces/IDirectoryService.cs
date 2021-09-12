@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Photy.Services.Environment.Interfaces
 {
-    public interface IEnvironmentDirectoryService
+    public interface IDirectoryService
     {
         void CreateDirectory(string directory);
         

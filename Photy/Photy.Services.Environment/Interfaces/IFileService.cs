@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Photy.Services.Environment.Interfaces
 {
-    public interface IEnvironmentFileService
+    public interface IFileService
     {
         FileInfo GetFile(string file);
 
