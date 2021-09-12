@@ -53,7 +53,7 @@ namespace Photy.Services.Environment.Test.Implementations
             };
             
             // Act
-            var result = _cut.EnumerateFilesRecursively(dirPath).ToList();
+            var result = _cut.EnumerateAllFilesRecursively(dirPath).ToList();
             
             // Assert
             AssertListContainsSameElements(containedDirectories, result);

@@ -18,9 +18,14 @@ namespace Photy.Services.Environment.Implementations
             _directoryService.CreateDirectory(directory);
         }
 
-        public IEnumerable<string> EnumerateFilesRecursively(string directory)
+        public IEnumerable<string> EnumerateAllFilesRecursively(string directory)
         {
-            return _directoryService.EnumerateFilesRecursively(PreprocessPath(directory));
+            return _directoryService.EnumerateAllFilesRecursively(PreprocessPath(directory));
+        }
+
+        public IEnumerable<string> EnumerateFilesRecursivelyByTypes(string directory, IEnumerable<string> types)
+        {
+            throw new System.NotImplementedException();
         }
 
         public IEnumerable<string> EnumerateDirectoriesRecursively(string directory)

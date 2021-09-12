@@ -11,9 +11,20 @@ namespace Photy.Services.Environment.Implementations
             Directory.CreateDirectory(directory);
         }
 
-        public IEnumerable<string> EnumerateFilesRecursively(string directory)
+        public IEnumerable<string> EnumerateAllFilesRecursively(string directory)
         {
             return Directory.EnumerateFiles(directory, "*.*", SearchOption.AllDirectories);
+        }
+
+        public IEnumerable<string> EnumerateFilesRecursivelyByTypes(string directory, IEnumerable<string> types)
+        {
+            var files = new List<string>();
+            foreach (var suffix in types)
+            {
+                files.AddRange(Directory.EnumerateFiles(directory, "*." + suffix, SearchOption.AllDirectories));
+            }
+
+            return files;
         }
 
         public IEnumerable<string> EnumerateDirectoriesRecursively(string directory)
