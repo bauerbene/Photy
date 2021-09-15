@@ -1,13 +1,11 @@
 using System.Collections.ObjectModel;
-using Avalonia.Media.Imaging;
 using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Interfaces;
-using Photy.ViewModels.Image;
-using Photy.Views.Image;
+using Photy.ViewModels.Interfaces;
 
-namespace Photy.ViewModels
+namespace Photy.ViewModels.Implementations
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
         private readonly IBitmapService _bitmapService;
         private readonly IDirectoryService _directoryService;

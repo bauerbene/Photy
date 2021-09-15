@@ -1,8 +1,9 @@
 using Avalonia.Media.Imaging;
+using Photy.ViewModels.Interfaces;
 
-namespace Photy.ViewModels.Image
+namespace Photy.ViewModels.Implementations
 {
-    public class ImageViewModel : ViewModelBase
+    public class ImageViewModel : ViewModelBase, IImageViewModel
     {
         private readonly Bitmap? _bitmap;
 
@@ -12,6 +13,5 @@ namespace Photy.ViewModels.Image
         }
 
         public Bitmap? Image => _bitmap;
-
     }
 }

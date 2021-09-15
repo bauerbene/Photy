@@ -1,6 +1,6 @@
 using ReactiveUI;
 
-namespace Photy.ViewModels
+namespace Photy.ViewModels.Implementations
 {
     public class ViewModelBase : ReactiveObject
     {
