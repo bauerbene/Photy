@@ -2,6 +2,9 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Photy.Services.Environment.Implementations;
+using Photy.Services.Environment.Interfaces;
+using Splat;
 
 namespace Photy
 {
@@ -18,5 +21,13 @@ namespace Photy
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .LogToTrace();
+
+        private void RegisterServices(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
+        {
+            
+            services.RegisterLazySingleton<IProcessService>(() => new ProcessService());
+            services.RegisterLazySingleton<IDirectoryService>(() => new DirectoryService());
+            services.RegisterLazySingleton<IFileService>(() => new FileService());
+        }
     }
 }
