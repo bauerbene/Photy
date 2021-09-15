@@ -1,6 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Photy.ViewModels;
+using Photy.Views;
+using Splat;
 
 namespace Photy
 {
@@ -15,7 +18,10 @@ namespace Photy
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = new MainWindow()
+                {
+                    DataContext = Locator.Current.GetService<MainWindowViewModel>()
+                };
             }
 
             base.OnFrameworkInitializationCompleted();

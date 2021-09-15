@@ -2,16 +2,13 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Photy
+namespace Photy.Views.Image
 {
-    public partial class MainWindow : Window
+    public class ImageView : UserControl
     {
-        public MainWindow()
+        public ImageView()
         {
             InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
         }
 
         private void InitializeComponent()

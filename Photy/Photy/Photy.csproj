@@ -5,16 +5,23 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.3" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
+        <PackageReference Include="Avalonia" Version="0.10.7" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.7" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.7" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.7" />
+        <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
         <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="8.3.1" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0-rc.1.21451.13" />
         <PackageReference Include="Splat" Version="13.1.1" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Photy.Services.Avanlonia\Photy.Services.Avanlonia.csproj" />
       <ProjectReference Include="..\Photy.Services.Environment\Photy.Services.Environment.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="DependencyInjection" />
+      <Compile Update="Views\MainWindow.axaml.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 </Project>
