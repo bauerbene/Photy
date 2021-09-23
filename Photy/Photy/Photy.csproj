@@ -17,11 +17,15 @@
     <ItemGroup>
       <ProjectReference Include="..\Photy.Services.Avanlonia\Photy.Services.Avanlonia.csproj" />
       <ProjectReference Include="..\Photy.Services.Environment\Photy.Services.Environment.csproj" />
+      <ProjectReference Include="..\Photy.ViewModels\Photy.ViewModels.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Update="Views\MainWindow.axaml.cs">
+      <Compile Update="Views\MainWindowView.axaml.cs">
         <DependentUpon>MainWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Views\Main" />
     </ItemGroup>
 </Project>

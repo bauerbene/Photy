@@ -48,11 +48,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kali/projects/github/Photy/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
+      "projectUniqueName": "/home/kali/projects/github/Photy_old/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
       "projectName": "Photy.Services.Environment",
-      "projectPath": "/home/kali/projects/github/Photy/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
+      "projectPath": "/home/kali/projects/github/Photy_old/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
       "packagesPath": "/home/kali/.nuget/packages/",
-      "outputPath": "/home/kali/projects/github/Photy/Photy/Photy.Services.Environment/obj/",
+      "outputPath": "/home/kali/projects/github/Photy_old/Photy/Photy.Services.Environment/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kali/.nuget/NuGet/NuGet.Config"

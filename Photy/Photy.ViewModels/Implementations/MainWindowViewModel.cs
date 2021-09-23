@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Interfaces;
+using Photy.ViewModels.Implementations.Image;
 using Photy.ViewModels.Interfaces;
 
 namespace Photy.ViewModels.Implementations
@@ -10,15 +11,18 @@ namespace Photy.ViewModels.Implementations
         private readonly IBitmapService _bitmapService;
         private readonly IDirectoryService _directoryService;
 
-        private ObservableCollection<ImageViewModel> _images = new();
+        private ObservableCollection<IImageViewModel> _images = new();
 
-        public MainWindowViewModel(IBitmapService bitmapService, IDirectoryService directoryService)
+        public MainWindowViewModel(
+            IBitmapService bitmapService, 
+            IDirectoryService directoryService
+        )
         {
             _bitmapService = bitmapService;
             _directoryService = directoryService;
         }
 
-        public ObservableCollection<ImageViewModel> Images
+        public ObservableCollection<IImageViewModel> Images
         {
             get
             {
@@ -27,15 +31,18 @@ namespace Photy.ViewModels.Implementations
             }
         }
 
-        private ObservableCollection<ImageViewModel> LoadImages()
+        private ObservableCollection<IImageViewModel> LoadImages()
         {
-            ObservableCollection<ImageViewModel> images = new();
+            ObservableCollection<IImageViewModel> images = new();
             const string path = "/home/kali/sicherung/DCIM/test/";
             var files = _directoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
             var bitmaps = _bitmapService.GetBitmapsByPaths(files);
             foreach (var bitmap in bitmaps)
             {
-                images.Add(new ImageViewModel(bitmap));
+                images.Add(new ImageViewModel
+                {
+                    Image = bitmap
+                });
             }
 
             return images;

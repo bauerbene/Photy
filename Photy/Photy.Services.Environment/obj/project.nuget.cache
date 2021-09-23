@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u2PLyOcNYj0kN0LaiffWh48yU8+qSneJUcvH2P35YntvGuhhPqtPSQZYy4/3PptgfciD3gGUoaMAmOBRhHkPMg==",
+  "dgSpecHash": "AlrM77wyECMsdgQbbgRkVCmsSHUCitXPpLzUOQa9PGhhE71VZzhpS9BFoVV0NFs1yykN1h/vnV3v9YGAOe2A+Q==",
   "success": true,
-  "projectFilePath": "/home/kali/projects/github/Photy/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
+  "projectFilePath": "/home/kali/projects/github/Photy_old/Photy/Photy.Services.Environment/Photy.Services.Environment.csproj",
   "expectedPackageFiles": [
     "/home/kali/.nuget/packages/splat/13.1.1/splat.13.1.1.nupkg.sha512"
   ],

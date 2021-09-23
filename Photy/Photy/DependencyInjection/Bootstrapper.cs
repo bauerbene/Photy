@@ -11,6 +11,8 @@ namespace Photy.DependencyInjection
             DataAccessConfiguration dataAccessConfiguration
         )
         {
+            EnvironmentServicesBootstrapper.RegisterEnvironmentServices(services, resolver);
+            ViewModelsBootstrapper.RegisterViewModels(services, resolver);
             
         }
     }

@@ -1,4 +1,6 @@
 using Microsoft.CodeAnalysis;
+using Photy.Services.Avanlonia.Implementations;
+using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Implementations;
 using Photy.Services.Environment.Interfaces;
 using Splat;
@@ -18,6 +20,7 @@ namespace Photy.DependencyInjection
             services.RegisterLazySingleton<IProcessService>(() => new ProcessService());
             services.RegisterLazySingleton<IFileService>(() => new FileService());
             services.RegisterLazySingleton<IDirectoryService>(() => new DirectoryService());
+            services.RegisterLazySingleton<IBitmapService>(() => new BitmapService());
         }
 
         private static void RegisterPlatformSpecificServices(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
