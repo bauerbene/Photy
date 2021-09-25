@@ -4,63 +4,63 @@ using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class WindowsFileService : IFileService
+    public class EnvironmentWindowsFileService : IEnvironmentFileService
     {
-        private readonly IFileService _fileService;
+        private readonly IEnvironmentFileService _environmentFileService;
 
-        public WindowsFileService(IFileService fileService)
+        public EnvironmentWindowsFileService(IEnvironmentFileService environmentFileService)
         {
-            _fileService = fileService;
+            _environmentFileService = environmentFileService;
         }
 
         public FileInfo GetFile(string file)
         {
-            return _fileService.GetFile(file);
+            return _environmentFileService.GetFile(file);
         }
 
         public string[] GetFiles(string directory)
         {
-            return _fileService.GetFiles(PreprocessPath(directory));
+            return _environmentFileService.GetFiles(PreprocessPath(directory));
         }
 
         public bool CheckIfExists(string filePath)
         {
-            return _fileService.CheckIfExists(filePath);
+            return _environmentFileService.CheckIfExists(filePath);
         }
 
         public void Move(string srcFilePath, string destFilePath)
         {
-            _fileService.Move(srcFilePath, destFilePath);
+            _environmentFileService.Move(srcFilePath, destFilePath);
         }
 
         public void Delete(string filePath)
         {
-            _fileService.Delete(filePath);
+            _environmentFileService.Delete(filePath);
         }
 
         public async Task WriteTextAsync(string filePath, string text)
         {
-            await _fileService.WriteTextAsync(filePath, text);
+            await _environmentFileService.WriteTextAsync(filePath, text);
         }
 
         public async Task WriteBytesAsync(string filePath, byte[] bytes)
         {
-            await _fileService.WriteBytesAsync(filePath, bytes);
+            await _environmentFileService.WriteBytesAsync(filePath, bytes);
         }
 
         public void Create(string filePath)
         {
-            _fileService.Create(filePath);
+            _environmentFileService.Create(filePath);
         }
 
         public Stream OpenRead(string filePath)
         {
-            return _fileService.OpenRead(filePath);
+            return _environmentFileService.OpenRead(filePath);
         }
 
         public Stream OpenWrite(string filePath)
         {
-            return _fileService.OpenWrite(filePath);
+            return _environmentFileService.OpenWrite(filePath);
         }
 
         private static string PreprocessPath(string path)

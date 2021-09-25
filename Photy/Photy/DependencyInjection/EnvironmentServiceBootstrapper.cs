@@ -17,9 +17,9 @@ namespace Photy.DependencyInjection
 
         private static void RegisterCommonServices(IMutableDependencyResolver services)
         {
-            services.RegisterLazySingleton<IProcessService>(() => new ProcessService());
-            services.RegisterLazySingleton<IFileService>(() => new FileService());
-            services.RegisterLazySingleton<IDirectoryService>(() => new DirectoryService());
+            services.RegisterLazySingleton<IEnvironmentProcessService>(() => new EnvironmentProcessService());
+            services.RegisterLazySingleton<IEnvironmentFileService>(() => new EnvironmentFileService());
+            services.RegisterLazySingleton<IEnvironmentDirectoryService>(() => new EnvironmentDirectoryService());
             services.RegisterLazySingleton<IBitmapService>(() => new BitmapService());
         }
 
@@ -36,9 +36,9 @@ namespace Photy.DependencyInjection
 
         private static void RegisterWindowsServices(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
         {
-            var fileService = resolver.GetRequiredService<IFileService>();
-            services.RegisterLazySingleton<IFileService>(() =>
-                new WindowsFileService(fileService)
+            var fileService = resolver.GetRequiredService<IEnvironmentFileService>();
+            services.RegisterLazySingleton<IEnvironmentFileService>(() =>
+                new EnvironmentWindowsFileService(fileService)
             );
             // services.RegisterLazySingleton<IEnvironmentDirectoryService>(() =>
             //    new EnvironmentDirectoryServiceWindowsDecorator(

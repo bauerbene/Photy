@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Photy.Services.Environment.Interfaces
 {
-    public interface IFileService
+    public interface IEnvironmentFileService
     {
         /// <summary>
         ///     Get the <see cref="FileInfo"/> of the file at the specified location.

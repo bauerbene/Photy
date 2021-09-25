@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace Photy.Services.Environment.Interfaces
 {
-    public interface IProcessService
+    public interface IEnvironmentProcessService
     {
         /// <summary>
         ///     Execute a command with specified arguments.

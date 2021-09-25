@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:implementations="clr-namespace:Photy.ViewModels.Implementations;assembly=Photy.ViewModels"
+             xmlns:views="clr-namespace:Photy.Views.Shared"
+             mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="300"
+             x:Class="Photy.Views.StartScreenView">
+    <Design.DataContext>
+        <implementations:StartScreenViewModel />
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+        <views:StartButtonView Grid.Row="0"
+                               Grid.Column="0"
+                               Content="{Binding StartViewerButton}"/>
+        
+        <views:StartButtonView Grid.Row="0"
+                               Grid.Column="1"
+                               Content="{Binding StartTaggerButton}"/>
+    </Grid>
+</UserControl>

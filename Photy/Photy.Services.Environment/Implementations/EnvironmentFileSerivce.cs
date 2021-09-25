@@ -4,7 +4,7 @@ using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class FileService : IFileService
+    public class EnvironmentFileService : IEnvironmentFileService
     {
         public FileInfo GetFile(string file)
         {

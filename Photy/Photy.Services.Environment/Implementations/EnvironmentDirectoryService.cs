@@ -4,7 +4,7 @@ using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class DirectoryService : IDirectoryService
+    public class EnvironmentDirectoryService : IEnvironmentDirectoryService
     {
         public void CreateDirectory(string directory)
         {

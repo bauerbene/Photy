@@ -1,5 +1,20 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:implementations="clr-namespace:Photy.ViewModels.Implementations;assembly=Photy.ViewModels"
+        x:Class="Photy.Views.MainWindowView"
+        Title="Photy"
+        SystemDecorations="Full"
+        MinWidth="900"
+        MinHeight="480"
+        Content="{Binding Content}" >
+    <Design.DataContext>
+        <!-- ReSharper disable once Xaml.ConstructorWarning -->
+        <implementations:MainWindowViewModel />
+    </Design.DataContext>    
+</Window>
+
+<!-- <Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:implementations="clr-namespace:Photy.ViewModels.Implementations;assembly=Photy.ViewModels"
@@ -12,6 +27,7 @@
     <Design.DataContext>
         <implementations:MainWindowViewModel />
     </Design.DataContext>
+    
 
     <ScrollViewer>
         <StackPanel>
@@ -29,3 +45,4 @@
     </ScrollViewer>
 
 </Window>
+-->

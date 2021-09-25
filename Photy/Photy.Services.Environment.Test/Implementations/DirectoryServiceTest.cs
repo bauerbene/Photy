@@ -8,14 +8,14 @@ namespace Photy.Services.Environment.Test.Implementations
 {
     public class DirectoryServiceTest
     {
-        private readonly DirectoryService _cut;
+        private readonly EnvironmentDirectoryService _cut;
         
         private const string TestResourcesPath 
             = "/home/kali/projects/github/Photy/Photy/Photy.Services.Environment.Test/TestResources";
         
         public DirectoryServiceTest()
         {
-            _cut = new DirectoryService();
+            _cut = new EnvironmentDirectoryService();
         }
 
         [Fact]

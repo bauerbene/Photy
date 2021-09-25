@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Photy.Services.Environment.Interfaces
 {
-    public interface IDirectoryService
+    public interface IEnvironmentDirectoryService
     {
         /// <summary>
         ///     Create a new Directory if it not already exists at the specified location.

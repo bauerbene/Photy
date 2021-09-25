@@ -17,11 +17,9 @@ namespace Photy.DependencyInjection
         private static void RegisterCommonViewModels(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
         {
             var bitmapService = resolver.GetRequiredService<IBitmapService>();
-            var directoryService = resolver.GetRequiredService<IDirectoryService>();
+            var directoryService = resolver.GetRequiredService<IEnvironmentDirectoryService>();
             services.Register<IMainWindowViewModel>(() => new MainWindowViewModel(
-                bitmapService,
-                directoryService
-            ));
+                bitmapService, directoryService));
             
             services.Register<IImageViewModel>(() => new ImageViewModel());
         }

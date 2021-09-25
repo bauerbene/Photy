@@ -4,7 +4,7 @@ using Photy.Services.Environment.Interfaces;
 
 namespace Photy.Services.Environment.Implementations
 {
-    public class ProcessService : IProcessService
+    public class EnvironmentProcessService : IEnvironmentProcessService
     {
         public void Execute(string command, string arguments)
         {

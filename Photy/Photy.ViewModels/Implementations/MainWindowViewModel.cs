@@ -1,4 +1,66 @@
-using System.Collections.ObjectModel;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Photy.Services.Avanlonia.Interfaces;
+using Photy.Services.Environment.Interfaces;
+using Photy.ViewModels.Implementations.Image;
+using Photy.ViewModels.Implementations.Shared;
+using Photy.ViewModels.Interfaces;
+using ReactiveUI;
+
+namespace Photy.ViewModels.Implementations
+{
+    public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
+    {
+        private ViewModelBase _content;
+
+        private readonly IBitmapService _bitmapService;
+        private readonly IEnvironmentDirectoryService _environmentDirectoryService;
+        
+        public ViewModelBase Content
+        {
+            get => _content;
+            set => this.RaiseAndSetIfChanged(ref _content, value);
+        }
+
+        public void StartViewer()
+        {
+            
+            const string path = "/home/kali/sicherung/DCIM/test/";
+            var files = _environmentDirectoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
+            var bitmaps = _bitmapService.GetBitmapsByPaths(new List<string>{files.First()});
+            Content = new ImageViewModel
+            {
+                Image = bitmaps.First()
+            };
+        }
+
+        public void StartTagger()
+        {
+            const string path = "/home/kali/sicherung/DCIM/test/";
+            var files = _environmentDirectoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
+            var bitmaps = _bitmapService.GetBitmapsByPaths(new List<string>{files.First()});
+            Content = new ImageViewModel
+            {
+                Image = bitmaps.First()
+            };
+        }
+
+        public MainWindowViewModel(IBitmapService bitmapService, IEnvironmentDirectoryService environmentDirectoryService)
+        {
+            _bitmapService = bitmapService;
+            _environmentDirectoryService = environmentDirectoryService;
+            _content = new StartScreenViewModel
+            {
+                StartTagger = StartTagger,
+                StartViewer = StartViewer
+            };
+        }
+    }
+}
+
+/*using System.Collections.ObjectModel;
 using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Interfaces;
 using Photy.ViewModels.Implementations.Image;
@@ -9,17 +71,17 @@ namespace Photy.ViewModels.Implementations
     public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
         private readonly IBitmapService _bitmapService;
-        private readonly IDirectoryService _directoryService;
+        private readonly IEnvironmentDirectoryService _environmentDirectoryService;
 
         private ObservableCollection<IImageViewModel> _images = new();
 
         public MainWindowViewModel(
             IBitmapService bitmapService, 
-            IDirectoryService directoryService
+            IEnvironmentDirectoryService environmentDirectoryService
         )
         {
             _bitmapService = bitmapService;
-            _directoryService = directoryService;
+            _environmentDirectoryService = environmentDirectoryService;
         }
 
         public ObservableCollection<IImageViewModel> Images
@@ -35,7 +97,7 @@ namespace Photy.ViewModels.Implementations
         {
             ObservableCollection<IImageViewModel> images = new();
             const string path = "/home/kali/sicherung/DCIM/test/";
-            var files = _directoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
+            var files = _environmentDirectoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
             var bitmaps = _bitmapService.GetBitmapsByPaths(files);
             foreach (var bitmap in bitmaps)
             {
@@ -48,4 +110,4 @@ namespace Photy.ViewModels.Implementations
             return images;
         }
     }
-}
+}*/
