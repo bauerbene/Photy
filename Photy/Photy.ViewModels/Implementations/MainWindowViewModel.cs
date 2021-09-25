@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Interfaces;
+using Photy.Services.Interfaces;
 using Photy.ViewModels.Implementations.Image;
 using Photy.ViewModels.Implementations.Shared;
 using Photy.ViewModels.Interfaces;
@@ -17,7 +18,8 @@ namespace Photy.ViewModels.Implementations
 
         private readonly IBitmapService _bitmapService;
         private readonly IEnvironmentDirectoryService _environmentDirectoryService;
-        
+        private readonly IExifService _exifService;
+
         public ViewModelBase Content
         {
             get => _content;
@@ -39,7 +41,7 @@ namespace Photy.ViewModels.Implementations
         public void StartTagger()
         {
             const string path = "/home/kali/sicherung/DCIM/test/";
-            var files = _environmentDirectoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"});
+            var files = _environmentDirectoryService.EnumerateFilesRecursivelyByTypes(path, new[] {"jpg"}).ToList();
             var bitmaps = _bitmapService.GetBitmapsByPaths(new List<string>{files.First()});
             Content = new ImageViewModel
             {
@@ -47,10 +49,14 @@ namespace Photy.ViewModels.Implementations
             };
         }
 
-        public MainWindowViewModel(IBitmapService bitmapService, IEnvironmentDirectoryService environmentDirectoryService)
+        public MainWindowViewModel(
+            IBitmapService bitmapService, 
+            IEnvironmentDirectoryService environmentDirectoryService,
+            IExifService exifService)
         {
             _bitmapService = bitmapService;
             _environmentDirectoryService = environmentDirectoryService;
+            _exifService = exifService;
             _content = new StartScreenViewModel
             {
                 StartTagger = StartTagger,

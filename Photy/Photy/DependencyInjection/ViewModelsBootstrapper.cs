@@ -1,5 +1,6 @@
 using Photy.Services.Avanlonia.Interfaces;
 using Photy.Services.Environment.Interfaces;
+using Photy.Services.Interfaces;
 using Photy.ViewModels.Implementations;
 using Photy.ViewModels.Implementations.Image;
 using Photy.ViewModels.Interfaces;
@@ -18,8 +19,9 @@ namespace Photy.DependencyInjection
         {
             var bitmapService = resolver.GetRequiredService<IBitmapService>();
             var directoryService = resolver.GetRequiredService<IEnvironmentDirectoryService>();
+            var exifService = resolver.GetRequiredService<IExifService>();
             services.Register<IMainWindowViewModel>(() => new MainWindowViewModel(
-                bitmapService, directoryService));
+                bitmapService, directoryService, exifService));
             
             services.Register<IImageViewModel>(() => new ImageViewModel());
         }

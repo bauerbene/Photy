@@ -17,6 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Photy.Services.Avanlonia\Photy.Services.Avanlonia.csproj" />
       <ProjectReference Include="..\Photy.Services.Environment\Photy.Services.Environment.csproj" />
+      <ProjectReference Include="..\Photy.Services\Photy.Services.csproj" />
       <ProjectReference Include="..\Photy.ViewModels\Photy.ViewModels.csproj" />
     </ItemGroup>
     <ItemGroup>
